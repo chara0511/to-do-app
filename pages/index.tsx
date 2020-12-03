@@ -1,43 +1,38 @@
-import Head from 'next/head';
-import { FC } from 'react';
+import Image from 'next/image';
 
-const Home: FC = () => {
+const Home = (): JSX.Element => {
   return (
-    <div>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    <>
+      <main>
+        <Image src="/bg-mobile-light.jpg" alt="Background mobile" width={375} height={200} />
 
-      <main className="p-4">
-        <h1>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
+        <div className="border-red-300">
+          <h1>to do</h1>
 
-        <p>
-          Get started by editing <code>pages/index.js</code>
-        </p>
+          <button>Dark demo</button>
+        </div>
 
         <div>
-          <a href="https://nextjs.org/docs">
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
+          <form>
+            <input type="text" value="create a new todo..." />
+            <input type="submit" value="submit" />
+          </form>
+        </div>
 
-          <a href="https://nextjs.org/learn">
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a href="https://github.com/vercel/next.js/tree/master/examples">
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app">
-            <h3>Deploy &rarr;</h3>
-            <p>Instantly deploy your Next.js site to a public URL with Vercel.</p>
-          </a>
+        <div>
+          <ul>
+            <li>
+              <div>
+                <span>i</span>
+                <p>Jog around the park 3x</p>
+                <span>x</span>
+              </div>
+            </li>
+          </ul>
+          <div>
+            <p>5 items left</p>
+            <p>clear completed</p>
+          </div>
         </div>
       </main>
 
@@ -47,10 +42,10 @@ const Home: FC = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Powered by <img src="/vercel.svg" alt="Vercel Logo" />
+          Powered by <Image src="/vercel.svg" alt="Vercel Logo" width={80} height={25} />
         </a>
       </footer>
-    </div>
+    </>
   );
 };
 

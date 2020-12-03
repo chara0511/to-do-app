@@ -8,6 +8,7 @@ module.exports = {
       jsx: true, // Enable JSX since we're using React
     },
   },
+  plugins: ['react', 'jsx-a11y', 'import', 'prettier'],
   settings: {
     react: {
       version: 'detect', // Automatically detect the react version
@@ -37,20 +38,59 @@ module.exports = {
       { vars: 'all', args: 'after-used', ignoreRestSiblings: false },
     ],
     '@typescript-eslint/no-var-requires': 'off',
-    'no-unused-vars': 'off',
     quotes: ['error', 'single'],
     indent: ['error', 2],
+    'import/no-unresolved': 'off',
+    'import/prefer-default-export': 'off',
+    'import/no-extraneous-dependencies': [
+      'error',
+      {
+        devDependencies: true,
+        optionalDependencies: false,
+        peerDependencies: false,
+      },
+    ],
+    'no-underscore-dangle': ['error', { allow: ['_id'] }],
+    'no-unused-vars': 'off',
+    'no-plusplus': 'off',
     'no-console': 'warn',
     'no-empty': 'warn',
+    'no-nested-ternary': 'off',
     'prettier/prettier': ['error', {}, { usePrettierrc: true }],
+    'react/jsx-filename-extension': [
+      'error',
+      {
+        extensions: ['.js', '.ts', '.tsx'],
+      },
+    ],
     'react/react-in-jsx-scope': 'off',
     'react/prop-types': 'off',
+    'react/jsx-props-no-spreading': 'off',
+    'jsx-a11y/click-events-have-key-events': 'off',
+    'jsx-a11y/no-static-element-interactions': 'off',
     'jsx-a11y/anchor-is-valid': [
       'error',
       {
         components: ['Link'],
         specialLink: ['hrefLeft', 'hrefRight'],
         aspects: ['invalidHref', 'preferButton'],
+      },
+    ],
+    'prefer-arrow-callback': 'error',
+    'prefer-destructuring': [
+      'error',
+      {
+        VariableDeclarator: {
+          array: false,
+          object: true,
+        },
+        AssignmentExpression: {
+          array: true,
+          object: false,
+        },
+      },
+      {
+        enforceForRenamedProperties: false,
       },
     ],
   },

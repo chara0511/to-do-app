@@ -1,0 +1,11 @@
+{
+  "title": "To Do App | Frontend Mentor",
+  "titleTemplate": "%s - Frontend Mentor",
+  "description": "To Do App -> https://www.frontendmentor.io/challenges/todo-app-Su1_KokOW",
+  "openGraph": {
+    "type": "website",
+    "locale": "en_IE",
+    "url": "https://www.frontendmentor.io/challenges",
+    "site_name": "To Do App"
+  }
+}

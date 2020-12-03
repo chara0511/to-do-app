@@ -1,9 +1,14 @@
-import { AppProps } from 'next/dist/next-server/lib/router/router';
-import { FC } from 'react';
+import { Head } from '@components/common';
+import { AppProps } from 'next/app';
 import '../styles/globals.css';
 
-const  MyApp:FC<AppProps> = ({ Component, pageProps }) => {
-  return <Component {...pageProps} />;
-}
+const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => {
+  return (
+    <>
+      <Head />
+      <Component {...pageProps} />
+    </>
+  );
+};
 
 export default MyApp;
