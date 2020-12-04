@@ -1,14 +1,16 @@
-import { Layout } from '@components/common';
+import { Layout, Searchbar } from '@components/common';
+import Link from 'next/link';
 
 const Home = (): JSX.Element => {
   return (
     <>
       <div>
-        <form>
-          <input type="text" value="create a new todo..." />
-          <input type="submit" value="submit" />
-        </form>
+        <div>
+          <Searchbar />
+        </div>
       </div>
+
+      <Link href="/demo">Read it here</Link>
 
       <div>
         <ul>

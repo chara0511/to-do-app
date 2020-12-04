@@ -5,6 +5,9 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      letterSpacing: {
+        widest2x: '.3em',
+      },
       screens: {
         '3xl': '1600px',
       },

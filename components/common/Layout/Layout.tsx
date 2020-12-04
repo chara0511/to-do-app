@@ -1,17 +1,14 @@
 import { FC } from 'react';
 import Image from 'next/image';
+import { Header } from '@components/common';
 
 const Layout: FC = ({ children }) => {
   return (
     <>
-      <header>
-        <Image src="/bg-mobile-light.jpg" alt="Background mobile" width={375} height={200} />
+      <Header />
 
-        <h1>to do</h1>
+      <main className="px-6">{children}</main>
 
-        <button>Dark demo</button>
-      </header>
-      <main>{children}</main>
       <footer>
         <a
           href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"

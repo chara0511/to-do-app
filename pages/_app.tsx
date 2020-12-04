@@ -1,6 +1,6 @@
-import { Head } from '@components/common';
-import type { AppProps } from 'next/app';
 import { FC } from 'react';
+import type { AppProps } from 'next/app';
+import { Head } from '@components/common';
 import '../styles/globals.css';
 
 const Noop: FC = ({ children }) => <>{children}</>;
@@ -11,7 +11,7 @@ const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => {
   return (
     <>
       <Head />
-      <Layout pageProps={pageProps}>
+      <Layout>
         <Component {...pageProps} />
       </Layout>
     </>
