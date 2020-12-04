@@ -4,13 +4,7 @@ import Link from 'next/link';
 const Home = (): JSX.Element => {
   return (
     <>
-      <div>
-        <div>
-          <Searchbar />
-        </div>
-      </div>
-
-      <Link href="/demo">Read it here</Link>
+      <Searchbar />
 
       <div>
         <ul>
@@ -27,6 +21,8 @@ const Home = (): JSX.Element => {
           <p>clear completed</p>
         </div>
       </div>
+
+      <Link href="/demo">Read it here</Link>
     </>
   );
 };

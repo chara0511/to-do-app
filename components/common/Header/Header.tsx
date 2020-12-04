@@ -9,9 +9,9 @@ const Header = (): JSX.Element => {
       <div className="absolute flex justify-between top-0 w-full px-6 py-10">
         <h1 className="text-white text-3xl uppercase font-bold tracking-widest2x">todo</h1>
 
-        <button type="button">
+        <button type="button" className="text-white hover:text-yellow-300">
           <span>
-            <SunIcon className="hover:fill-current" />
+            <SunIcon />
           </span>
         </button>
       </div>

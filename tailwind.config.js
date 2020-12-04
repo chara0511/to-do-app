@@ -8,6 +8,9 @@ module.exports = {
       letterSpacing: {
         widest2x: '.3em',
       },
+      maxWidth: {
+        '2xs': '1.5rem',
+      },
       screens: {
         '3xl': '1600px',
       },

@@ -7,7 +7,7 @@ const Layout: FC = ({ children }) => {
     <>
       <Header />
 
-      <main className="px-6">{children}</main>
+      <main className="relative -mt-24 px-6">{children}</main>
 
       <footer>
         <a
