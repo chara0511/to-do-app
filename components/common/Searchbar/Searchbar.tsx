@@ -9,7 +9,7 @@ interface Props {
 const Searchbar: FC<Props> = ({ id = 'search' }) => {
   return useMemo(
     () => (
-      <div className="flex bg-white p-3 rounded text-gray-300 focus-within:text-gray-600">
+      <div className="flex bg-white p-4 rounded text-gray-300 focus-within:text-gray-600">
         <label className="hidden" htmlFor={id}>
           search
         </label>
