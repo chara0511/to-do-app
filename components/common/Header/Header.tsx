@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { SunIcon } from '@components/icons';
+import { MoonIcon } from '@components/icons';
 
 const Header = (): JSX.Element => {
   return (
@@ -11,7 +11,7 @@ const Header = (): JSX.Element => {
 
         <button type="button" className="text-white hover:text-yellow-300">
           <span>
-            <SunIcon />
+            <MoonIcon />
           </span>
         </button>
       </div>

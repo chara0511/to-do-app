@@ -4,11 +4,9 @@ interface Props extends SVGProps<SVGSVGElement> {
   className?: string;
 }
 
-const SunIcon: FC<Props> = (props) => {
-  const { className, ...rest } = props;
-
+const SunIcon: FC<Props> = ({ ...props }) => {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" className={className} {...rest}>
+    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" {...props}>
       <path
         fill="currentColor"
         fillRule="evenodd"

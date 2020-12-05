@@ -1,16 +1,17 @@
-import { Layout, Searchbar, ToDoList } from '@components/common';
-import Link from 'next/link';
+import { FilterBar, Layout, Searchbar, ToDoList } from '@components/common';
 
 const Home = (): JSX.Element => {
   return (
     <>
       <Searchbar />
 
-      <div>
-        <ToDoList />
-      </div>
+      <ToDoList />
 
-      <Link href="/demo">Read it here</Link>
+      <FilterBar />
+
+      <div className="h-28 mb-4 flex justify-center items-center text-gray-400">
+        <span>Drag and drop to reorder list</span>
+      </div>
     </>
   );
 };
