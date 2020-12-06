@@ -2,7 +2,7 @@
 
 import { NextApiRequest, NextApiResponse } from 'next';
 
-const hello = (_req: NextApiRequest, res: NextApiResponse): void => {
+const hello = (_req: NextApiRequest, res: NextApiResponse): any => {
   res.statusCode = 200;
   res.json({ name: 'John Doe' });
 };

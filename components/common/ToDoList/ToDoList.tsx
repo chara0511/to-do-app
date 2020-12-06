@@ -1,20 +1,44 @@
-import { FC } from 'react';
+/* eslint-disable indent */
+import { FC, useEffect } from 'react';
 import { CheckIcon, CrossIcon } from '@components/icons';
-import { ToDoItemModel, useToDo } from '@components/context/context';
+import { ToDoItemModel, useToDo, View } from '@components/context/context';
 
 const ToDoList: FC = (): JSX.Element => {
-  const { toDoItems, deleteToDo, toggleToDo } = useToDo();
-  // const todos: string[] = [
-  //   'Jog around the park 3x',
-  //   '10 minutes meditation',
-  //   'read for 1 hour',
-  //   'pick up groceries',
-  //   'complete todo app on frontend mentor',
-  // ];
+  const {
+    toDoItems,
+    toDoToShow,
+    view,
+    deleteToDo,
+    toggleToDo,
+    getToDoAll,
+    getToDoActive,
+    getToDoCompleted,
+  } = useToDo();
+
+  const handleClick = (value: View): any => {
+    switch (value) {
+      case 'all': {
+        return getToDoAll();
+      }
+
+      case 'active': {
+        return getToDoActive();
+      }
+
+      case 'completed': {
+        return getToDoCompleted();
+      }
+    }
+  };
+
+  useEffect(() => {
+    handleClick(view);
+    return (): any => handleClick(view);
+  }, [toDoItems, view]);
 
   return (
     <ul className="bg-white w-full mt-4 rounded-t">
-      {toDoItems.map((toDo: ToDoItemModel) => (
+      {toDoToShow.map((toDo: ToDoItemModel) => (
         <li key={toDo.id} className="p-4 border-b hover:shadow">
           <div className={`flex ${toDo.isDone && 'line-through text-gray-300'}`}>
             <button
@@ -45,7 +69,7 @@ const ToDoList: FC = (): JSX.Element => {
       ))}
 
       <li className="border-b flex justify-between mt-1 p-4 text-gray-400">
-        <p>{toDoItems.filter((toDo: ToDoItemModel) => toDo.isDone === false).length} items left</p>
+        <p>{toDoToShow.length} items left</p>
         <p>clear completed</p>
       </li>
     </ul>

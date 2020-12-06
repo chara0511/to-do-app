@@ -17,7 +17,7 @@ const Input: FC<Props> = (props) => {
       type="text"
       placeholder="Create a new to do..."
       className={className}
-      onKeyUp={(e: KeyboardEvent<HTMLInputElement>): void => {
+      onKeyUp={(e: KeyboardEvent<HTMLInputElement>): any => {
         e.preventDefault();
 
         if (e.key === 'Enter' && e.currentTarget.value !== '') {
