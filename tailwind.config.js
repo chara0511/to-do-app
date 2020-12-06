@@ -5,6 +5,10 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      colors: {
+        lightskyblue: '#56DDFF',
+        mediumorchid: '#BF58F3',
+      },
       letterSpacing: {
         widest2x: '.3em',
       },

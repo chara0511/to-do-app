@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import type { AppProps } from 'next/app';
 import { Head } from '@components/common';
+import { ToDoContextProvider } from '@components/context';
 import '../styles/globals.css';
-import { ToDoContextProvider } from 'context';
 
 const Noop: FC = ({ children }) => <>{children}</>;
 
