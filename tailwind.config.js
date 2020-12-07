@@ -12,11 +12,14 @@ module.exports = {
       letterSpacing: {
         widest2x: '.3em',
       },
+      height: {
+        '1/3screen': '33vh',
+      },
       maxWidth: {
         '2xs': '1.5rem',
       },
       screens: {
-        '3xl': '1600px',
+        '3xl': '1920px',
       },
     },
   },

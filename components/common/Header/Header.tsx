@@ -19,7 +19,9 @@ const Header = (): JSX.Element => {
       />
 
       <div className="absolute flex justify-between top-0 left-0 right-0 mx-auto max-w-xl w-full px-6 pt-10 md:pt-20">
-        <h1 className="text-white text-3xl uppercase font-bold tracking-widest2x">todo</h1>
+        <h1 className="text-white text-3xl lg:text-4xl uppercase font-bold tracking-widest2x">
+          todo
+        </h1>
 
         <button
           type="button"

@@ -1,0 +1,23 @@
+.toDoItemsContainer {
+  @apply bg-white w-full h-1/3screen mt-4 overflow-y-auto rounded-t;
+}
+
+.toDoItemContainer {
+  @apply p-4 border-b hover:shadow;
+}
+
+.checkButton {
+  @apply flex justify-center items-center max-w-2xs w-full h-6 mr-2 text-center border border-gray-300 border-solid rounded-full;
+}
+
+.deleteButton {
+  @apply max-w-2xs w-full ml-2 text-gray-300 text-center rounded-full;
+}
+
+.toDoItemFooter {
+  @apply bg-white flex justify-between p-4 text-gray-400 rounded-b;
+}
+
+.clearCompletedButton {
+  @apply capitalize;
+}
