@@ -1,5 +1,6 @@
 import { MoonIcon, SunIcon } from '@components/icons';
 import { useToDo } from '@components/context/context';
+import styles from './Header.module.css';
 
 const Header = (): JSX.Element => {
   const { darkMode, toggleDarkMode } = useToDo();
@@ -18,15 +19,13 @@ const Header = (): JSX.Element => {
         src={darkMode ? '/bg-desktop-dark.jpg' : '/bg-desktop-light.jpg'}
       />
 
-      <div className="absolute flex justify-between top-0 left-0 right-0 mx-auto max-w-xl w-full px-6 pt-10 md:pt-20">
-        <h1 className="text-white text-3xl lg:text-4xl uppercase font-bold tracking-widest2x">
-          todo
-        </h1>
+      <div className={styles.content}>
+        <h1 className={styles.title}>todo</h1>
 
         <button
           type="button"
           onClick={(): any => toggleDarkMode()}
-          className={`text-white  hover:outline-none focus:outline-none ${
+          className={`${styles.toggleButton} ${
             darkMode ? 'hover:text-yellow-300' : 'hover:text-blue-300'
           }`}
         >

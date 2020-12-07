@@ -43,7 +43,7 @@ const ToDoList: FC = (): JSX.Element => {
 
   return (
     <>
-      <ul className={`${styles.toDoItemsContainer} dark:bg-gray-800`}>
+      <ul className={`${styles.container} dark:bg-gray-800`}>
         {toDoToShow.map((toDo: ToDoItemModel) => (
           <li key={toDo.id} className={`${styles.toDoItemContainer} dark:border-gray-600`}>
             <div
@@ -55,7 +55,7 @@ const ToDoList: FC = (): JSX.Element => {
             >
               <button
                 type="button"
-                className={`${styles.checkButton} hover:outline-none focus:outline-none ${
+                className={`${styles.checkButton} ${
                   toDo.isDone
                     ? 'text-white bg-gradient-to-r from-lightskyblue to-mediumorchid'
                     : 'text-gray-300'
@@ -71,7 +71,7 @@ const ToDoList: FC = (): JSX.Element => {
 
               <button
                 type="button"
-                className={`${styles.deleteButton} hover:outline-none focus:outline-none`}
+                className={styles.deleteButton}
                 onClick={(): any => deleteToDo(toDo.id)}
               >
                 <CrossIcon />

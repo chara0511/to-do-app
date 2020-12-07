@@ -1,0 +1,12 @@
+.container {
+  @apply bg-white flex p-4 rounded text-gray-300 focus-within:text-gray-600;
+}
+
+.checkButton {
+  @apply max-w-2xs w-full h-6 mr-2 border text-center cursor-default border-gray-300 border-solid rounded-full;
+}
+
+.checkButton:hover,
+.checkButton:focus {
+  @apply outline-none;
+}

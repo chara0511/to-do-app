@@ -1,4 +1,4 @@
-.toDoItemsContainer {
+.container {
   @apply bg-white w-full h-1/3screen mt-4 overflow-y-auto rounded-t;
 }
 
@@ -10,8 +10,18 @@
   @apply flex justify-center items-center max-w-2xs w-full h-6 mr-2 text-center border border-gray-300 border-solid rounded-full;
 }
 
+.checkButton:hover,
+.checkButton:focus {
+  @apply outline-none;
+}
+
 .deleteButton {
   @apply max-w-2xs w-full ml-2 text-gray-300 text-center rounded-full;
+}
+
+.deleteButton:hover,
+.deleteButton:focus {
+  @apply outline-none;
 }
 
 .toDoItemFooter {

@@ -1,0 +1,16 @@
+.container {
+  @apply my-4 p-4 bg-white w-full rounded shadow text-center;
+}
+
+.filterButton {
+  @apply mx-2 px-1 capitalize font-semibold;
+}
+
+.filterButton:hover,
+.filterButton:focus {
+  @apply outline-none;
+}
+
+.active {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-lightskyblue to-mediumorchid;
+}

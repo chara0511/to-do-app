@@ -1,6 +1,7 @@
 import { FC, useMemo } from 'react';
 import { Input } from '@components/ui';
 import { CheckIcon } from '@components/icons';
+import styles from './Searchbar.module.css';
 
 interface Props {
   id?: string;
@@ -9,15 +10,12 @@ interface Props {
 const Searchbar: FC<Props> = ({ id = 'search' }) => {
   return useMemo(
     () => (
-      <div className="flex bg-white dark:bg-gray-800 p-4 rounded text-gray-300 focus-within:text-gray-600">
+      <div className={`${styles.container} dark:bg-gray-800`}>
         <label className="hidden" htmlFor={id}>
           search
         </label>
 
-        <button
-          type="button"
-          className="max-w-2xs w-full h-6 mr-2 border text-center cursor-default border-gray-300 border-solid rounded-full hover:outline-none focus:outline-none"
-        >
+        <button type="button" className={styles.checkButton}>
           <span>
             <CheckIcon className="invisible" />
           </span>
