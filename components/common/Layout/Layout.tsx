@@ -10,7 +10,7 @@ const Layout: FC = ({ children }) => {
       <div className="bg-gray-100 dark:bg-gray-900 min-h-screen">
         <Header />
 
-        <main className="relative -mt-24 px-6">{children}</main>
+        <main className="relative -mt-24 max-w-xl mx-auto px-6">{children}</main>
 
         <Footer />
       </div>
