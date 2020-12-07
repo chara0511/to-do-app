@@ -8,6 +8,7 @@ const ToDoList: FC = (): JSX.Element => {
     toDoItems,
     toDoToShow,
     view,
+    clearToDoCompleted,
     deleteToDo,
     toggleToDo,
     getToDoAll,
@@ -15,7 +16,7 @@ const ToDoList: FC = (): JSX.Element => {
     getToDoCompleted,
   } = useToDo();
 
-  const handleClick = (value: View): any => {
+  const handleToDoToShow = (value: View): any => {
     switch (value) {
       case 'all': {
         return getToDoAll();
@@ -32,15 +33,24 @@ const ToDoList: FC = (): JSX.Element => {
   };
 
   useEffect(() => {
-    handleClick(view);
-    return (): any => handleClick(view);
+    handleToDoToShow(view);
+    return (): any => handleToDoToShow(view);
   }, [toDoItems, view]);
 
+  const showItemsLeft = toDoItems.filter((toDoItem: ToDoItemModel) => toDoItem.isDone === false)
+    .length;
+
   return (
-    <ul className="bg-white w-full mt-4 rounded-t">
+    <ul className="bg-white dark:bg-gray-800 w-full mt-4 rounded">
       {toDoToShow.map((toDo: ToDoItemModel) => (
-        <li key={toDo.id} className="p-4 border-b hover:shadow">
-          <div className={`flex ${toDo.isDone && 'line-through text-gray-300'}`}>
+        <li key={toDo.id} className="p-4 border-b dark:border-gray-600 hover:shadow">
+          <div
+            className={`flex ${
+              toDo.isDone
+                ? 'line-through text-gray-300 dark:text-gray-600'
+                : 'text-black dark:text-white'
+            }`}
+          >
             <button
               type="button"
               className={`${
@@ -68,9 +78,17 @@ const ToDoList: FC = (): JSX.Element => {
         </li>
       ))}
 
-      <li className="border-b flex justify-between mt-1 p-4 text-gray-400">
-        <p>{toDoToShow.length} items left</p>
-        <p>clear completed</p>
+      <li className="border-b dark:border-gray-600 flex justify-between mt-1 p-4 text-gray-400">
+        <p>
+          <span>{showItemsLeft}</span> items left
+        </p>
+        <button
+          type="button"
+          className="capitalize hover:outline-none focus:outline-none"
+          onClick={(): any => clearToDoCompleted()}
+        >
+          clear completed
+        </button>
       </li>
     </ul>
   );

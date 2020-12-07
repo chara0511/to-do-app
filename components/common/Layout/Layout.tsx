@@ -1,14 +1,19 @@
 import { FC } from 'react';
 import { Footer, Header } from '@components/common';
+import { useToDo } from '@components/context/context';
 
 const Layout: FC = ({ children }) => {
+  const { darkMode } = useToDo();
+
   return (
-    <div className="bg-gray-100 min-h-screen">
-      <Header />
+    <div className={`${darkMode ? 'dark' : ''}`}>
+      <div className="bg-gray-100 dark:bg-gray-900 min-h-screen">
+        <Header />
 
-      <main className="relative -mt-24 px-6">{children}</main>
+        <main className="relative -mt-24 px-6">{children}</main>
 
-      <Footer />
+        <Footer />
+      </div>
     </div>
   );
 };

@@ -7,7 +7,7 @@ const FilterBar: FC = (): JSX.Element => {
   const FILTER = Object.entries({ all: 'all', active: 'active', completed: 'completed' });
 
   return (
-    <div className="my-4 p-4 bg-white w-full rounded shadow text-center">
+    <div className="my-4 p-4 bg-white dark:bg-gray-800 w-full rounded shadow text-center">
       {FILTER.map(([key, text]) => (
         <button
           key={key}

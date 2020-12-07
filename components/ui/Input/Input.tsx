@@ -1,4 +1,4 @@
-import { FC, InputHTMLAttributes, KeyboardEvent } from 'react';
+import { ChangeEvent, FC, InputHTMLAttributes, KeyboardEvent, useState } from 'react';
 import { useToDo } from '@components/context/context';
 
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
@@ -8,6 +8,25 @@ interface Props extends InputHTMLAttributes<HTMLInputElement> {
 
 const Input: FC<Props> = (props) => {
   const { addToDo } = useToDo();
+  const [inputvalue, setInputValue] = useState('');
+
+  const handleInputValue = (e: ChangeEvent<HTMLInputElement>): any => {
+    setInputValue(e.currentTarget.value);
+  };
+
+  const addNewToDo = (): any => {
+    if (inputvalue) {
+      addToDo(inputvalue);
+      setInputValue('');
+    }
+  };
+
+  const handleEnterButton = (e: KeyboardEvent<HTMLInputElement>): any => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      addNewToDo();
+    }
+  };
 
   const { className, id, ...rest } = props;
 
@@ -15,20 +34,12 @@ const Input: FC<Props> = (props) => {
     <input
       id={id}
       type="text"
+      autoComplete="off"
       placeholder="Create a new to do..."
       className={className}
-      onKeyUp={(e: KeyboardEvent<HTMLInputElement>): any => {
-        e.preventDefault();
-
-        if (e.key === 'Enter' && e.currentTarget.value !== '') {
-          addToDo(e.currentTarget.value);
-          // dispatch => getValueSearch(e.currentTarget.value);
-          //const q = e.currentTarget.value;
-          // router.push({ pathname: '/demo', query: q ? { q } : {} }, undefined, {
-          //   shallow: true,
-          // });
-        }
-      }}
+      value={inputvalue}
+      onChange={handleInputValue}
+      onKeyUp={handleEnterButton}
       {...rest}
     />
   );

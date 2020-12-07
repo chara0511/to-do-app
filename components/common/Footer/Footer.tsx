@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 const Footer = (): JSX.Element => {
   return (
-    <footer className="flex items-center justify-center w-full text-sm">
+    <footer className="flex items-center justify-center w-full text-sm dark:text-gray-400">
       <a
         className="mr-1"
         href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
