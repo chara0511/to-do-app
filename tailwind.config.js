@@ -13,6 +13,9 @@ module.exports = {
         grab: 'grab',
         grabbing: 'grabbing',
       },
+      fontFamily: {
+        body: ['Josefin Sans', 'sans-serif'],
+      },
       letterSpacing: {
         widest2x: '.3em',
       },

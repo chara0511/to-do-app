@@ -6,20 +6,10 @@ import { ToDoItemModel, useToDo, View } from '@components/context/context';
 import styles from './ToDoItems.module.css';
 
 const ToDoItems: FC = () => {
-  const {
-    toDoItems,
-    toDoToShow,
-    view,
-    clearToDoCompleted,
-    getToDoAll,
-    getToDoActive,
-    getToDoCompleted,
-  } = useToDo();
+  const { toDoItems, view, clearToDoCompleted } = useToDo();
 
-  const [cards, setCards] = useState(toDoToShow);
-  console.log(cards);
+  const [cards, setCards] = useState(toDoItems);
 
-  //check this code
   const moveCard = useCallback(
     (dragIndex: number, hoverIndex: number) => {
       const dragCard = cards[dragIndex];
@@ -35,18 +25,18 @@ const ToDoItems: FC = () => {
     [cards],
   );
 
-  const handleToDoToShow = (value: View): any => {
+  const handleToDoToShow = (value: View): void => {
     switch (value) {
       case 'all': {
-        return getToDoAll();
+        return setCards([...toDoItems]);
       }
 
       case 'active': {
-        return getToDoActive();
+        return setCards(toDoItems.filter((toDoItem: ToDoItemModel) => toDoItem.isDone === false));
       }
 
       case 'completed': {
-        return getToDoCompleted();
+        return setCards(toDoItems.filter((toDoItem: ToDoItemModel) => toDoItem.isDone === true));
       }
     }
   };
@@ -55,11 +45,6 @@ const ToDoItems: FC = () => {
     handleToDoToShow(view);
     return (): any => handleToDoToShow(view);
   }, [toDoItems, view]);
-
-  useEffect(() => {
-    setCards(toDoToShow);
-    return (): any => setCards(toDoToShow);
-  }, [toDoToShow]);
 
   const showItemsLeft = toDoItems.filter((toDoItem: ToDoItemModel) => toDoItem.isDone === false)
     .length;
