@@ -2,26 +2,11 @@
   @apply bg-white w-full h-1/3screen mt-4 overflow-y-auto rounded-t;
 }
 
-.toDoItemContainer {
-  @apply font-medium p-4 border-b hover:shadow;
-}
+.scrollY {
+  /* for Firefox */
+  scrollbar-width: thin;
 
-.checkButton {
-  @apply flex justify-center items-center max-w-2xs w-full h-6 mr-2 text-center border border-gray-300 border-solid rounded-full;
-}
-
-.checkButton:hover,
-.checkButton:focus {
-  @apply outline-none;
-}
-
-.deleteButton {
-  @apply ml-2 text-gray-300 text-center rounded-full;
-}
-
-.deleteButton:hover,
-.deleteButton:focus {
-  @apply outline-none;
+  @apply overflow-auto w-full;
 }
 
 .toDoItemFooter {
@@ -35,13 +20,6 @@
 .clearButton:hover,
 .clearButton:focus {
   @apply bg-clip-text font-semibold text-transparent bg-gradient-to-r from-lightskyblue to-mediumorchid outline-none;
-}
-
-.scrollY {
-  /* for Firefox */
-  scrollbar-width: thin;
-
-  @apply overflow-auto w-full;
 }
 
 /* for Chrome and others based in -webkit */

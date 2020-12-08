@@ -24,6 +24,7 @@ const Header = (): JSX.Element => {
 
         <button
           type="button"
+          aria-label="Toggle Button"
           onClick={(): any => toggleDarkMode()}
           className={`${styles.toggleButton} ${
             darkMode ? 'hover:text-yellow-300' : 'hover:text-blue-300'

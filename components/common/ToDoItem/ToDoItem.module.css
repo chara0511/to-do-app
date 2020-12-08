@@ -1,0 +1,25 @@
+.container {
+  @apply font-medium cursor-grab p-4 border-b hover:shadow;
+}
+
+.container:active {
+  @apply cursor-grabbing;
+}
+
+.checkButton {
+  @apply flex justify-center items-center max-w-2xs w-full h-6 mr-2 text-center border border-gray-300 border-solid rounded-full;
+}
+
+.checkButton:hover,
+.checkButton:focus {
+  @apply outline-none;
+}
+
+.deleteButton {
+  @apply ml-2 text-gray-300 text-center rounded-full;
+}
+
+.deleteButton:hover,
+.deleteButton:focus {
+  @apply outline-none;
+}

@@ -86,6 +86,7 @@ $ npm run dev
 
 ## Acknowledgements
 
+- [React DnD - Sortable simple](https://react-dnd.github.io/react-dnd/examples/sortable/simple)
 - [Next.js examples - GitHub](https://github.com/vercel/next.js/tree/canary/examples)
 - [React TypeScript Cheatsheets](https://react-typescript-cheatsheet.netlify.app/)
 - [Tailwind CSS For Absolute Beginners](https://medium.com/codingthesmartway-com-blog/tailwind-css-for-absolute-beginners-3e1b5e8fe1a1)

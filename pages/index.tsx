@@ -1,11 +1,11 @@
-import { FilterBar, Layout, Searchbar, ToDoList } from '@components/common';
+import { FilterBar, Layout, Searchbar, ToDoItems } from '@components/common';
 
 const Home = (): JSX.Element => {
   return (
     <>
       <Searchbar />
 
-      <ToDoList />
+      <ToDoItems />
 
       <FilterBar />
 

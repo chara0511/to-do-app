@@ -11,7 +11,7 @@ const Searchbar: FC<Props> = ({ id = 'search' }) => {
   return useMemo(
     () => (
       <div className={`${styles.container} dark:bg-gray-800`}>
-        <button type="button" aria-label="Check Button" className={styles.checkButton}>
+        <button type="button" aria-label="Check Button - disabled" className={styles.checkButton}>
           <span>
             <CheckIcon className="invisible" />
           </span>

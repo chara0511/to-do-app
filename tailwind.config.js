@@ -9,6 +9,10 @@ module.exports = {
         lightskyblue: '#56DDFF',
         mediumorchid: '#BF58F3',
       },
+      cursor: {
+        grab: 'grab',
+        grabbing: 'grabbing',
+      },
       letterSpacing: {
         widest2x: '.3em',
       },
