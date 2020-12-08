@@ -1,5 +1,5 @@
 .container {
-  @apply my-4 p-4 bg-white w-full rounded shadow text-center;
+  @apply my-4 p-4 bg-white text-gray-500 w-full rounded shadow text-center;
 }
 
 .filterButton {
@@ -9,8 +9,4 @@
 .filterButton:hover,
 .filterButton:focus {
   @apply outline-none;
-}
-
-.active {
-  @apply bg-clip-text text-transparent bg-gradient-to-r from-lightskyblue to-mediumorchid;
 }

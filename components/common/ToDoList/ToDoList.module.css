@@ -3,7 +3,7 @@
 }
 
 .toDoItemContainer {
-  @apply p-4 border-b hover:shadow;
+  @apply font-medium p-4 border-b hover:shadow;
 }
 
 .checkButton {
@@ -16,7 +16,7 @@
 }
 
 .deleteButton {
-  @apply max-w-2xs w-full ml-2 text-gray-300 text-center rounded-full;
+  @apply ml-2 text-gray-300 text-center rounded-full;
 }
 
 .deleteButton:hover,
@@ -25,9 +25,39 @@
 }
 
 .toDoItemFooter {
-  @apply bg-white flex justify-between p-4 text-gray-400 rounded-b;
+  @apply bg-white flex justify-between p-4 text-gray-500 rounded-b;
 }
 
-.clearCompletedButton {
+.clearButton {
   @apply capitalize;
+}
+
+.clearButton:hover,
+.clearButton:focus {
+  @apply bg-clip-text font-semibold text-transparent bg-gradient-to-r from-lightskyblue to-mediumorchid outline-none;
+}
+
+.scrollY {
+  /* for Firefox */
+  scrollbar-width: thin;
+
+  @apply overflow-auto w-full;
+}
+
+/* for Chrome and others based in -webkit */
+.scrollY::-webkit-scrollbar {
+  @apply w-2 h-2;
+}
+
+.scrollY::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 rounded-md;
+}
+
+.scrollY::-webkit-scrollbar-thumb:hover,
+.scrollY::-webkit-scrollbar-thumb:active {
+  @apply bg-gradient-to-r from-lightskyblue to-mediumorchid shadow;
+}
+
+.scrollY::-webkit-scrollbar-track {
+  @apply bg-gray-200 rounded-md;
 }

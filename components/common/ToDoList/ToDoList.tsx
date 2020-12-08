@@ -43,11 +43,11 @@ const ToDoList: FC = (): JSX.Element => {
 
   return (
     <>
-      <ul className={`${styles.container} dark:bg-gray-800`}>
+      <ul className={`${styles.container} ${styles.scrollY} dark:bg-gray-800`}>
         {toDoToShow.map((toDo: ToDoItemModel) => (
           <li key={toDo.id} className={`${styles.toDoItemContainer} dark:border-gray-600`}>
             <div
-              className={`flex ${
+              className={`flex items-center ${
                 toDo.isDone
                   ? 'line-through text-gray-300 dark:text-gray-600'
                   : 'text-black dark:text-white'
@@ -87,7 +87,7 @@ const ToDoList: FC = (): JSX.Element => {
         </p>
         <button
           type="button"
-          className={styles.clearCompletedButton}
+          className={styles.clearButton}
           onClick={(): any => clearToDoCompleted()}
         >
           clear completed

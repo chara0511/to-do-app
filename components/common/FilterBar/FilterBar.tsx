@@ -12,15 +12,21 @@ const FilterBar: FC = (): JSX.Element => {
       {FILTER.map(([key, text]) => (
         <button
           key={key}
-          className={`${styles.filterButton} ${
-            view === text ? `${styles.active}` : 'text-gray-400'
-          }`}
+          className={`${styles.filterButton} ${view === text ? 'active' : ''}`}
           type="button"
           onClick={(): any => toggleView(text)}
         >
           {text}
         </button>
       ))}
+      <style jsx>{`
+        .active {
+          background-clip: text;
+          background-image: linear-gradient(to right, #56ddff, #bf58f3);
+          color: transparent;
+          -webkit-background-clip: text;
+        }
+      `}</style>
     </div>
   );
 };

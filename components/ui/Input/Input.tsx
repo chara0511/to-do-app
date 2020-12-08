@@ -31,17 +31,19 @@ const Input: FC<Props> = (props) => {
   const { className, id, ...rest } = props;
 
   return (
-    <input
-      id={id}
-      type="text"
-      autoComplete="off"
-      placeholder="Create a new to do..."
-      className={className}
-      value={inputvalue}
-      onChange={handleInputValue}
-      onKeyUp={handleEnterButton}
-      {...rest}
-    />
+    <label htmlFor={id}>
+      <input
+        id={id}
+        type="text"
+        autoComplete="off"
+        placeholder="Create a new to do..."
+        className={className}
+        value={inputvalue}
+        onChange={handleInputValue}
+        onKeyUp={handleEnterButton}
+        {...rest}
+      />
+    </label>
   );
 };
 
