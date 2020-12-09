@@ -1,61 +1,55 @@
 /* eslint-disable indent */
 import { FC, useCallback, useEffect, useState } from 'react';
-import update from 'immutability-helper';
-import { ToDoItem } from '@components/common';
+import { ReactSortable } from 'react-sortablejs';
 import { ToDoItemModel, useToDo, View } from '@components/context/context';
+import { ToDoItem } from '@components/common';
 import styles from './ToDoItems.module.css';
 
 const ToDoItems: FC = () => {
-  const { toDoItems, view, clearToDoCompleted } = useToDo();
+  const { toDoItems, view, clearToDoCompleted, sortToDoItem } = useToDo();
+  const [state, setState] = useState<ToDoItemModel[]>([]);
 
-  const [cards, setCards] = useState(toDoItems);
+  const handleToDoToShow = useCallback(
+    (value: View) => {
+      switch (value) {
+        case 'all': {
+          return setState([...toDoItems]);
+        }
 
-  const moveCard = useCallback(
-    (dragIndex: number, hoverIndex: number) => {
-      const dragCard = cards[dragIndex];
-      setCards(
-        update(cards, {
-          $splice: [
-            [dragIndex, 1],
-            [hoverIndex, 0, dragCard],
-          ],
-        }),
-      );
+        case 'active': {
+          return setState(toDoItems.filter((toDoItem: ToDoItemModel) => toDoItem.isDone === false));
+        }
+
+        case 'completed': {
+          return setState(toDoItems.filter((toDoItem: ToDoItemModel) => toDoItem.isDone === true));
+        }
+      }
     },
-    [cards],
+    [toDoItems],
   );
-
-  const handleToDoToShow = (value: View): void => {
-    switch (value) {
-      case 'all': {
-        return setCards([...toDoItems]);
-      }
-
-      case 'active': {
-        return setCards(toDoItems.filter((toDoItem: ToDoItemModel) => toDoItem.isDone === false));
-      }
-
-      case 'completed': {
-        return setCards(toDoItems.filter((toDoItem: ToDoItemModel) => toDoItem.isDone === true));
-      }
-    }
-  };
 
   useEffect(() => {
     handleToDoToShow(view);
-    return (): any => handleToDoToShow(view);
-  }, [toDoItems, view]);
+  }, [handleToDoToShow, view]);
 
   const showItemsLeft = toDoItems.filter((toDoItem: ToDoItemModel) => toDoItem.isDone === false)
     .length;
 
   return (
     <>
-      <ul className={`${styles.container} ${styles.scrollY} dark:bg-gray-800`}>
-        {cards.map((toDo: ToDoItemModel, index: number) => (
-          <ToDoItem key={toDo.id} index={index} toDo={toDo} moveCard={moveCard} />
+      <ReactSortable
+        tag="ul"
+        list={view === 'all' ? toDoItems : state}
+        setList={view === 'all' ? sortToDoItem : setState}
+        group="groupName"
+        animation={300}
+        delay={3}
+        className={`${styles.container} ${styles.scrollY} dark:bg-gray-800`}
+      >
+        {state.map((toDo: ToDoItemModel) => (
+          <ToDoItem key={toDo.id} toDo={toDo} />
         ))}
-      </ul>
+      </ReactSortable>
 
       <div className={`${styles.toDoItemFooter} dark:bg-gray-800 border-b dark:border-gray-600`}>
         <p>
