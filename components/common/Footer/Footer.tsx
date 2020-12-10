@@ -1,18 +1,20 @@
-import Image from 'next/image';
+import { VercelIcon } from '@components/icons';
 import styles from './Footer.module.css';
 
 const Footer = (): JSX.Element => {
   return (
-    <footer className={styles.container}>
+    <footer>
       <a
-        className="mr-1"
+        className={`${styles.container} dark:text-gray-300`}
         href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
         target="_blank"
         rel="noopener noreferrer"
       >
         Powered by
+        <span className="ml-1">
+          <VercelIcon className="w-16" />
+        </span>
       </a>
-      <Image src="/vercel.svg" alt="Vercel Logo" width={60} height={22} />
     </footer>
   );
 };

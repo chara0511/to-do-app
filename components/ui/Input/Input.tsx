@@ -31,7 +31,7 @@ const Input: FC<Props> = (props) => {
   const { className, id, ...rest } = props;
 
   return (
-    <label htmlFor={id} className="w-full">
+    <label htmlFor={id} className="w-full flex items-center">
       <input
         id={id}
         type="text"

@@ -1,27 +1,26 @@
 /* eslint-disable indent */
-import { FC, useCallback, useEffect, useState } from 'react';
+import { FC, useCallback, useEffect } from 'react';
 import { ReactSortable } from 'react-sortablejs';
 import { ToDoItemModel, useToDo, View } from '@components/context/context';
 import { ToDoItem } from '@components/common';
 import styles from './ToDoItems.module.css';
 
 const ToDoItems: FC = () => {
-  const { toDoItems, view, clearToDoCompleted, sortToDoItem } = useToDo();
-  const [state, setState] = useState<ToDoItemModel[]>([]);
+  const { toDoItems, view, clearToDoCompleted, sortToDoItems } = useToDo();
 
   const handleToDoToShow = useCallback(
     (value: View) => {
       switch (value) {
         case 'all': {
-          return setState([...toDoItems]);
+          return [...toDoItems];
         }
 
         case 'active': {
-          return setState(toDoItems.filter((toDoItem: ToDoItemModel) => toDoItem.isDone === false));
+          return toDoItems.filter((toDoItem: ToDoItemModel) => toDoItem.isDone === false);
         }
 
         case 'completed': {
-          return setState(toDoItems.filter((toDoItem: ToDoItemModel) => toDoItem.isDone === true));
+          return toDoItems.filter((toDoItem: ToDoItemModel) => toDoItem.isDone === true);
         }
       }
     },
@@ -30,7 +29,10 @@ const ToDoItems: FC = () => {
 
   useEffect(() => {
     handleToDoToShow(view);
+    return (): any => handleToDoToShow(view);
   }, [handleToDoToShow, view]);
+
+  const toDoItemsToShow = handleToDoToShow(view);
 
   const showItemsLeft = toDoItems.filter((toDoItem: ToDoItemModel) => toDoItem.isDone === false)
     .length;
@@ -39,14 +41,14 @@ const ToDoItems: FC = () => {
     <>
       <ReactSortable
         tag="ul"
-        list={view === 'all' ? toDoItems : state}
-        setList={view === 'all' ? sortToDoItem : setState}
+        list={toDoItems}
+        setList={sortToDoItems}
         group="groupName"
         animation={300}
         delay={3}
         className={`${styles.container} ${styles.scrollY} dark:bg-gray-800`}
       >
-        {state.map((toDo: ToDoItemModel) => (
+        {toDoItemsToShow.map((toDo: ToDoItemModel) => (
           <ToDoItem key={toDo.id} toDo={toDo} />
         ))}
       </ReactSortable>

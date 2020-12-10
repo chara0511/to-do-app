@@ -1,5 +1,5 @@
 .container {
-  @apply font-medium cursor-grab p-4 border-b hover:shadow;
+  @apply font-medium cursor-grab p-4 border-b hover:shadow select-none;
 }
 
 .container:active {
@@ -7,7 +7,7 @@
 }
 
 .checkButton {
-  @apply flex justify-center items-center max-w-2xs w-full h-6 mr-2 text-center border border-gray-300 border-solid rounded-full;
+  @apply flex justify-center items-center max-w-2xs w-full h-6 mr-2 md:mr-4 text-center border border-gray-300 border-solid rounded-full;
 }
 
 .checkButton:hover,

@@ -25,7 +25,7 @@ type Action =
   | { type: 'ADD_TO_DO_ITEM'; payload: ToDoItemModel }
   | { type: 'CLEAR_TO_DO_COMPLETED' }
   | { type: 'DELETE_TO_DO_ITEM'; payload: number }
-  | { type: 'SORT_TO_DO_ITEM'; payload: ToDoItemModel[] }
+  | { type: 'SORT_TO_DO_ITEMS'; payload: ToDoItemModel[] }
   | { type: 'TOGGLE_DARK_MODE' }
   | { type: 'TOGGLE_TO_DO_ITEM'; payload: number }
   | { type: 'TOGGLE_VIEW'; payload: View };
@@ -49,11 +49,11 @@ const toDoReducer = (state: ToDoState, action: Action): ToDoState => {
     case 'DELETE_TO_DO_ITEM': {
       return {
         ...state,
-        toDoItems: state.toDoItems.filter((toDoItem) => toDoItem.id !== action.payload),
+        toDoItems: state.toDoItems?.filter((toDoItem) => toDoItem.id !== action.payload),
       };
     }
 
-    case 'SORT_TO_DO_ITEM': {
+    case 'SORT_TO_DO_ITEMS': {
       return {
         ...state,
         toDoItems: [...action.payload],
@@ -100,9 +100,9 @@ const ToDoProvider: FC = (props) => {
       payload: { id: new Date().getTime(), task: toDo, isDone: false },
     });
   const clearToDoCompleted = (): any => dispatch({ type: 'CLEAR_TO_DO_COMPLETED' });
-  const deleteToDo = (id: number): any => dispatch({ type: 'DELETE_TO_DO_ITEM', payload: id });
-  const sortToDoItem = (sortToDoItems: ToDoItemModel[]): any =>
-    dispatch({ type: 'SORT_TO_DO_ITEM', payload: sortToDoItems });
+  const deleteToDo = (id: number): void => dispatch({ type: 'DELETE_TO_DO_ITEM', payload: id });
+  const sortToDoItems = (sortToDoItems: ToDoItemModel[]): any =>
+    dispatch({ type: 'SORT_TO_DO_ITEMS', payload: sortToDoItems });
   const toggleDarkMode = (): any => dispatch({ type: 'TOGGLE_DARK_MODE' });
   const toggleToDo = (id: number): any => dispatch({ type: 'TOGGLE_TO_DO_ITEM', payload: id });
   const toggleView = (view: View): any => dispatch({ type: 'TOGGLE_VIEW', payload: view });
@@ -113,7 +113,7 @@ const ToDoProvider: FC = (props) => {
       addToDo,
       clearToDoCompleted,
       deleteToDo,
-      sortToDoItem,
+      sortToDoItems,
       toggleDarkMode,
       toggleToDo,
       toggleView,

@@ -3,7 +3,7 @@
 }
 
 .checkButton {
-  @apply max-w-2xs w-full h-6 mr-2 border text-center cursor-default border-gray-300 border-solid rounded-full;
+  @apply max-w-2xs w-full h-6 mr-2 md:mr-4 border text-center cursor-default border-gray-300 border-solid rounded-full;
 }
 
 .checkButton:hover,

@@ -8,7 +8,7 @@ interface ToDoItemProps {
 }
 
 const ToDoItem: FC<ToDoItemProps> = ({ toDo }) => {
-  const { deleteToDo, toggleToDo } = useToDo();
+  const { toggleToDo, deleteToDo } = useToDo();
 
   const ref = useRef<HTMLLIElement>(null);
 
@@ -29,9 +29,7 @@ const ToDoItem: FC<ToDoItemProps> = ({ toDo }) => {
               ? 'text-white bg-gradient-to-r from-lightskyblue to-mediumorchid'
               : 'text-gray-300'
           }`}
-          onClick={(): any => {
-            toggleToDo(toDo.id);
-          }}
+          onClick={(): any => toggleToDo(toDo.id)}
         >
           <CheckIcon className={toDo.isDone ? 'stroke-2' : ''} />
         </button>
@@ -42,7 +40,9 @@ const ToDoItem: FC<ToDoItemProps> = ({ toDo }) => {
           type="button"
           aria-label="Delete To Do Item Button"
           className={styles.deleteButton}
-          onClick={(): any => deleteToDo(toDo.id)}
+          onClick={(): any => {
+            deleteToDo(toDo.id);
+          }}
         >
           <CrossIcon />
         </button>
